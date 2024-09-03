@@ -3,14 +3,75 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>template Vue</title>
+        <title>Boolzapp</title>
+
+        <!-- fontawesome  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- css  -->
          <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         
-        <div id="app">{{ message }}</div>
+        <div class="container">
+
+            <div class="chatContainer">
+                <header class="headerContainer headerContainerLeft">
+                    <div >
+                        <img class="imageChat" src="img/avatar_io.jpg" alt="">
+                        <span> Sofia</span>
+    
+                    </div>
+    
+                    <div class="iconeFooter">
+                        <span><i class="fa-solid fa-circle-notch"></i></span>
+                        <span><i class="fa-solid fa-message"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+
+                        
+                    </div>
+    
+                </header>
+    
+                <main>
+    
+                </main>
+    
+            </div>
+    
+            <div class="chatActiveContainer">
+                <header class="headerContainer">
+                    <div >
+                        <img class="imageChat" src="img/avatar_1.jpg" alt="">
+                        <div class="footerChatContact">
+                            <span> Michele</span>
+                            <div>Ultimo Accesso</div>
+
+                        </div>
+    
+                    </div>
+    
+                    <div class="iconeFooter">
+                        <span><i class="fa-solid fa-circle-notch"></i></span>
+                        <span><i class="fa-solid fa-message"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+
+                        
+                    </div>
+    
+                </header>
+                
+                <main>
+    
+                </main>
+    
+                <footer>
+    
+                </footer>
+                
+            </div>
+
+        </div>
         
         
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
