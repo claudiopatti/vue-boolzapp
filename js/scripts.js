@@ -167,16 +167,29 @@ const { createApp } = Vue
                     ],
                 },
                 
-            ]
+            ],
+            newMessage: '',
             
         }
+    },
+    methods: {
+        chatActive(i) {
+            this.activeContactIndex = i;
+            
         },
-        methods: {
-            chatActive(i) {
-                this.activeContactIndex = i;
-                
-            }
-                    
 
+        pushNewMessage(i) {
+            this.contacts[i].messages.push({
+                date: '10/01/2020 15:30:55',
+                message: this.newMessage,
+                status: 'sent'
+            })
+
+            this.newMessage = '',
+            console.log(this.newMessage)
+            
         }
-    }).mount('#app')
+        
+        
+    },
+}).mount('#app')
