@@ -22,9 +22,9 @@ reset
 
 #app {
     width: 1000px;
-    height: 700px;
+    height: 800px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 20px;
     /* background-color: aqua; */
     display: flex;
 }

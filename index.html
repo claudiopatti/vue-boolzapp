@@ -65,45 +65,16 @@
                     <main class="mainContainerChatleft ">
     
     
-                        <div class="containerChat active">
+                        <div @click="chatActive(index)" v-for="(contact, index) in contacts" class="containerChat" 
+                            :class="{
+                                'active' : index == activeContactIndex
+                            }">
                             <div class="imageContainer">
-                                <img class="imageChat" src="img/avatar_1.jpg" alt="">
+                                <img class="imageChat" :src="contact.avatar" :alt="contact.name">
     
                             </div>
                             <div class="footerChatContact">
-                                <span> Michele</span>
-                                <div>Ultimo Accesso</div>
-    
-                            </div>
-                            <div class="clock">
-                                12:00
-                            </div>
-        
-                        </div>
-    
-                        <div class="containerChat">
-                            <div class="imageContainer">
-                                <img class="imageChat" src="img/avatar_1.jpg" alt="">
-    
-                            </div>
-                            <div class="footerChatContact">
-                                <span> Michele</span>
-                                <div>Ultimo Accesso</div>
-    
-                            </div>
-                            <div class="clock">
-                                12:00
-                            </div>
-        
-                        </div>
-    
-                        <div class="containerChat">
-                            <div class="imageContainer">
-                                <img class="imageChat" src="img/avatar_1.jpg" alt="">
-    
-                            </div>
-                            <div class="footerChatContact">
-                                <span> Michele</span>
+                                <span> {{contact.name}}</span>
                                 <div>Ultimo Accesso</div>
     
                             </div>
@@ -140,17 +111,20 @@
                     </header>
                     
                     <main class="mainContainerChatRight">
-                        <div class="messaggeContainer sent">
-                            <div class="messaggeItem">
-                                Hai portato a spasso il cane?
+                        <!-- v-for="(messaggio, indexMessage) in item.messages" :key="indexItem" -->
+                        <div v-for="(item, indexItem) in contacts[activeContactIndex].messages" class="messaggeContainer"
+                        :class="item.status == 'sent' ? 'sent' : 'received'"
+                        >
+                            <div  class="messaggeItem">
+                                {{item.message}}
                                 <div class="timeMessage">
-                                    16:15
+                                    {{item.date}}
                                 </div>
                             </div>
     
                         </div>
     
-                        <div class="messaggeContainer sent">
+                        <!-- <div class="messaggeContainer sent">
                             <div class="messaggeItem">
                                 Ricordati di stendere i panni
                                 <div class="timeMessage">
@@ -168,7 +142,7 @@
                                 </div>
                             </div>
     
-                        </div>
+                        </div> -->
         
                     </main>
         
