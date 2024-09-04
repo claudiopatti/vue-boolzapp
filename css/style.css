@@ -10,25 +10,35 @@ reset
 
 /* general */
 
-.container {
-    width: 1000px;
+.chat-container {
+    width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(231,231,231);
+    background: linear-gradient(360deg, rgba(231,231,231,1) 76%, rgba(10,211,124,1) 76%);
+}
+
+#app {
+    width: 1000px;
+    height: 700px;
     margin: 0 auto;
-    margin-top: 50px;
-    background-color: aqua;
+    padding-top: 50px;
+    /* background-color: aqua; */
     display: flex;
 }
 
 .chatContainer {
     width: 40%;
     height: 100%;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 }
 
 .chatActiveContainer {
     width: 60%;
     height: 100%;
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
 }
 
 .headerContainer {
@@ -47,6 +57,7 @@ reset
 
 .headerContainer > :first-child {
     display: flex;
+    margin-left: 10px;
 }
 
 .headerContainer > :first-child > span {
@@ -59,6 +70,7 @@ reset
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 10px;
 }
 
 .iconeFooter > * {
@@ -67,14 +79,153 @@ reset
     padding-right: 10px;
 }
 
+.iconeMicrophone {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #8edafc;
+    margin-right: 10px;
+}
+
+.notifiche {
+    background-color: #8edafc;
+    height: 80px;
+    display: flex;
+}
+
+
+
+.notifiche > :first-child {
+    padding-left: 10px;
+    display: flex;
+
+    align-items: center;
+}
+
 .footerChatContact {
     align-self: center;
+    flex-grow: 1;
 }
 
 .footerChatContact > div {
     color: #b1b1b1;
 }
 
-.mainContainer {
+.notificheActive > a {
+    color: #b1b1b1;
+}
+
+.mainContainerChatleft {
     width: 100%;
+    height: calc(100% - 200px);
+    overflow-y: auto;
+    background-color: white;
+}
+
+.searchContact {
+    height: 50px;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+}
+
+.searchContact > div {
+    width: 20%;
+    padding-left: 20px;
+    color: #b1b1b1;
+}
+
+.searchContact > input {
+    flex-grow: 1;
+}
+
+.containerChat {
+    display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+.imageContainer {
+    width: 70px;
+    margin-left: 10px;
+}
+
+.clock {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.active {
+    background-color: lightgrey;
+}
+
+.footerChatRight {
+    display: flex;
+    height: 50px;
+    background-color: #eaeaea;
+    padding: 10px 0;
+}
+
+.iconeFooterChat {
+    width: 10%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    color: #b1b1b1;
+}
+
+.inputMessagge  {
+    flex-grow: 1;
+    display: flex;
+
+}
+
+.inputMessagge > input  {
+    flex-grow: 1;
+
+}
+
+.mainContainerChatRight {
+    height: calc(100% - 120px);
+    overflow-y: auto;
+    background-image: url("../img/mine.jpg");
+    padding: 20px 20px 0;
+}
+
+.messaggeContainer {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.messaggeItem {
+    border-radius: 10px;
+    max-width: 40%;
+    padding: 10px;
+    min-width: 30%;
+    background-color: white;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.messaggeContainer.sent > .messaggeItem{
+    background-color: #d5f9ba;
+}
+
+.messaggeContainer.sent {
+    justify-content: flex-end;
+}
+
+.messaggeContainer.received {
+    justify-content: flex-start;
+}
+
+.timeMessage {
+    text-align: end;
+    font-size: 10px;
+    color: #b1b1b1;
+
 }
