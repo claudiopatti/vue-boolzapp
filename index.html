@@ -56,7 +56,8 @@
                                 <div>
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
-                                <input type="text" placeholder="Cerca o inizia una nuova cha">
+                                <input  v-model="searchContactInChat"
+                                type="text" placeholder="Cerca o inizia una nuova cha">
         
                             </div>
                         </div>
@@ -65,7 +66,7 @@
                     <main class="mainContainerChatleft ">
     
     
-                        <div @click="chatActive(index)" v-for="(contact, index) in contacts" class="containerChat" 
+                        <div @click="chatActive(index)" v-for="(contact, index) in searchChat()" :key="contact.name" class="containerChat" 
                             :class="{
                                 'active' : index == activeContactIndex
                             }">
@@ -91,9 +92,9 @@
                 <div class="chatActiveContainer">
                     <header class="headerContainer">
                         <div >
-                            <img class="imageChat" src="img/avatar_1.jpg" alt="">
+                            <img class="imageChat" :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
                             <div class="footerChatContact">
-                                <span> Michele</span>
+                                <span> {{contacts[activeContactIndex].name}} </span>
                                 <div>Ultimo Accesso oggi alle ore 12:00</div>
     
                             </div>

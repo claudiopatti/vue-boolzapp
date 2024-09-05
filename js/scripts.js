@@ -169,6 +169,9 @@ const { createApp } = Vue
                 
             ],
             newMessage: '',
+            searchContactInChat: '',
+            nameSplit: [],
+            result: [],
             
         }
     },
@@ -178,23 +181,87 @@ const { createApp } = Vue
             
         },
 
+        getFullDate() {
+            const now = new Date();
+
+            let fullDate = '';
+            fullDate += now.getDate().toString().padStart(2, '0');
+            fullDate += '/';
+            fullDate += (now.getMonth().toString().padStart(2, '0'));
+            fullDate += '/';
+            fullDate += now.getFullYear();
+            fullDate += ' ';
+            fullDate += now.getHours().toString().padStart(2, '0');
+            fullDate += ':';
+            fullDate += now.getMinutes().toString().padStart(2, '0');
+            fullDate += ':';
+            fullDate += now.getSeconds().toString().padStart(2, '0');
+
+            return fullDate;
+
+
+        },
+
         pushNewMessage(i) {
-            this.contacts[i].messages.push({
-                date: '10/01/2020 15:30:55',
-                message: this.newMessage,
-                status: 'sent'
-            })
-
-            this.newMessage = '',
-
-            setTimeout(() => {
-                this.contacts[this.activeContactIndex].messages.push({
-                    date: '10/01/2020 15:30:55',
-                    message: 'ok',
-                    status: 'received'
+            if (this.newMessage.trim() != '') {
+                
+                this.contacts[i].messages.push({
+                    date: this.getFullDate(),
+                    message: this.newMessage.trim(),
+                    status: 'sent'
                 })
-            }, 1000);
+    
+                this.newMessage = '',
+    
+                setTimeout(() => {
+                    this.contacts[this.activeContactIndex].messages.push({
+                        date: this.getFullDate(),
+                        message: 'ok',
+                        status: 'received'
+                    })
+                }, 1000);
+            }
             
+        },
+
+
+        
+        
+        searchChat() {
+            return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchContactInChat.toLowerCase().trim()));
+            
+            // // for (let i = 0, i < of arr1) {
+            //     if (arr2.includes(item)) {
+            //         result.push(item);
+            //     }
+            // // }
+            // console.log(result);
+
+            // function checkAdult(age) {
+            //     return age == ;
+            // }
+
+            // result = this.contacts[0].name.filter(item => this.searchContactInChat.includes(item));
+
+            // console.log(result);
+
+
+            // const minLength = Math.min(this.searchContactInChat.length, this.nameSplit.length);
+            // // i = 1
+            // for (let i = 0; i < this.contacts.length; i++) {
+            //     this.nameSplit +=  this.contacts[i].name.split("")
+            //     console.log(this.nameSplit[0])
+            //     // if (this.searchContactInChat[i] !== this.nameSplit[i]) {
+            //     //     console.log('non sono più  uguali')
+                    
+            //     // }
+            //     // else {
+            //     //     console.log('sono uguali')
+            //     //     console.log(this.nameSplit[i])
+            //     // }
+                
+            // }
+
         }
         
         
