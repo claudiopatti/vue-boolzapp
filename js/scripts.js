@@ -170,14 +170,16 @@ const { createApp } = Vue
             ],
             newMessage: '',
             searchContactInChat: '',
-            nameSplit: [],
-            result: [],
+            // nameSplit: [],
+            // result: [],
             
         }
     },
     methods: {
         chatActive(i) {
-            this.activeContactIndex = i;
+            const contactFilterChat = this.searchChat()[i];
+            const originalIndex = this.contacts.findIndex(filterIndex => filterIndex.name == contactFilterChat.name)
+            this.activeContactIndex = originalIndex;
             
         },
 
@@ -229,6 +231,7 @@ const { createApp } = Vue
         
         searchChat() {
             return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchContactInChat.toLowerCase().trim()));
+
             
             // // for (let i = 0, i < of arr1) {
             //     if (arr2.includes(item)) {

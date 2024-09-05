@@ -66,9 +66,9 @@
                     <main class="mainContainerChatleft ">
     
     
-                        <div @click="chatActive(index)" v-for="(contact, index) in searchChat()" :key="contact.name" class="containerChat" 
+                        <div @click="chatActive(index)" v-for="(contact, index) in searchChat()"  class="containerChat" 
                             :class="{
-                                'active' : index == activeContactIndex
+                                'active' : index  == activeContactIndex 
                             }">
                             <div class="imageContainer">
                                 <img class="imageChat" :src="contact.avatar" :alt="contact.name">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="footerChatContact">
                                 <span> {{contact.name}}</span>
-                                <div>Ultimo messaggio inviato</div>
+                                <div>{{contact.messages[contact.messages.length -1].message}}</div>
     
                             </div>
                             <div class="clock">
