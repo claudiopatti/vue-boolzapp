@@ -12,11 +12,11 @@
          <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-
+        
         <main class="chat-container">
-
+            <!-- collegamento tramite id con Vue  -->
             <div id="app">
-    
+                    <!-- container Principale  -->
                 <div class="chatContainer">
                     <header class="headerContainer headerContainerLeft">
                         <div >
@@ -34,7 +34,8 @@
                         </div>
         
                     </header>
-    
+
+                        <!-- sezione delle notifiche da attivare -->
                     <section>
     
                         <div>
@@ -57,15 +58,15 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
                                 <input  v-model="searchContactInChat"
-                                type="text" placeholder="Cerca o inizia una nuova cha">
+                                type="text" placeholder="Cerca o inizia una nuova chat">
         
                             </div>
                         </div>
                     </section>
         
                     <main class="mainContainerChatleft ">
-    
-    
+
+                        <!-- contatti creati tramite ciclo e visibile solo quello cliccato e quindi attivo -->
                         <div @click="chatActive(index)" v-for="(contact, index) in searchChat()"  class="containerChat" 
                             :class="{
                                 'active' : index  == activeContactIndex 
@@ -91,6 +92,7 @@
         
                 <div class="chatActiveContainer">
                     <header class="headerContainer">
+                        <!-- contatto attivo mostrato al di sopra della chat  -->
                         <div >
                             <img class="imageChat" :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
                             <div class="footerChatContact">
@@ -111,6 +113,7 @@
         
                     </header>
                     
+                    <!-- Messaggi creati tramite ciclo e presi dalla array dei messaggi relativi al contatto attivo  -->
                     <main class="mainContainerChatRight">
                         <!-- v-for="(messaggio, indexMessage) in item.messages" :key="indexItem" -->
                         <div v-for="(item, indexItem) in contacts[activeContactIndex].messages" class="messaggeContainer"
@@ -146,7 +149,7 @@
                         </div> -->
         
                     </main>
-        
+                        <!-- Barra finale con la possibilità di creare nuovo messaggio e invialo nella chat tramite il tasto enter  -->
                     <footer class="footerChatRight">
                         <div class="iconeFooterChat">
                             <i class="fa-regular fa-face-smile"></i>

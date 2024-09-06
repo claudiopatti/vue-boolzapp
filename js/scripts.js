@@ -3,7 +3,7 @@ const { createApp } = Vue
     createApp({
         data() {
         return {
-            activeContactIndex : 0,
+            activeContactIndex : 0, // indice dell'immagine attiva
             contacts: [
                 {
                     name: 'Michele',
@@ -168,7 +168,7 @@ const { createApp } = Vue
                 },
                 
             ],
-            newMessage: '',
+            newMessage: '', // nuovo messaggio creato tramite l'input
             searchContactInChat: '',
             // nameSplit: [],
             // result: [],
@@ -176,6 +176,7 @@ const { createApp } = Vue
         }
     },
     methods: {
+        // funzione per capire quale Contatto sia stato cliccato e quindi mostrala in chat
         chatActive(i) {
             const contactFilterChat = this.searchChat()[i];
             const originalIndex = this.contacts.findIndex(filterIndex => filterIndex.name == contactFilterChat.name)
@@ -183,6 +184,7 @@ const { createApp } = Vue
             
         },
 
+        // funzione per creare data completata di ora e giorno
         getFullDate() {
             const now = new Date();
 
@@ -204,6 +206,7 @@ const { createApp } = Vue
 
         },
 
+        // funzione per pushare nuovo messaggio nella lista dei Messages
         pushNewMessage(i) {
             if (this.newMessage.trim() != '') {
                 
@@ -214,7 +217,8 @@ const { createApp } = Vue
                 })
     
                 this.newMessage = '',
-    
+                
+                // risposta che arriva entro 1 secondo
                 setTimeout(() => {
                     this.contacts[this.activeContactIndex].messages.push({
                         date: this.getFullDate(),
@@ -228,7 +232,7 @@ const { createApp } = Vue
 
 
         
-        
+        // funzione per cercare contatto nella lista dei contatti tramite l'input di ricerca
         searchChat() {
             return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchContactInChat.toLowerCase().trim()));
 
