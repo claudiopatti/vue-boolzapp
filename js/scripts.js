@@ -180,8 +180,8 @@ const { createApp } = Vue
         chatActive(i) {
             const contactFilterChat = this.searchChat()[i];
             const originalIndex = this.contacts.findIndex(filterIndex => filterIndex.name == contactFilterChat.name)
+            this.searchContactInChat = '';
             this.activeContactIndex = originalIndex;
-            
         },
 
         // funzione per creare data completata di ora e giorno
